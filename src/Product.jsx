@@ -30,7 +30,7 @@ function Products() {
           <p className="text-lg font-bold">${product.price}</p>
           <button
             onClick={() => addToCart(product)}
-            className="mt-2 bg-transparent text-black px-2 py-2 rounded-lg border"
+            className="mt-2 bg-transparent text-black px-2 py-2 rounded-lg border cursor-pointer"
           >
             Add to Cart
           </button>

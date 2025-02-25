@@ -1,7 +1,9 @@
 
 import React from "react";
-import { NavLink } from 'react-router'
+import { NavLink, useLocation } from 'react-router'
+
 function Cart({ cartItems, removeFromCart, addToCart }) {
+    const location = useLocation();
     return (
         <div className="p-6 m-10 border fixed bg-gray-200 top-10 right-0 w-1/2  rounded-lg shadow-lg shadow-gray-400">
             <h2 className="text-lg font-semibold">Cart</h2>
@@ -31,16 +33,32 @@ function Cart({ cartItems, removeFromCart, addToCart }) {
                 </div>
             ))}
             <h3 className="font-bold mt-4">Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}</h3>
-            
-           <div className="mt-2 text-center">
-           <NavLink
-            to="/payment"
-                type="button"
-                className="text-center border rounded-xl bg-blue-500 text-white px-4 py-2"
-            >
-                Proceed to Pay
-            </NavLink>
-           </div>
+
+            <div className="mt-2 text-center">
+                {
+                    location.pathname === '/' && (
+                        <NavLink
+                            to="/payment"
+                            type="button"
+                            className="text-center border rounded-xl bg-blue-500 text-white px-4 py-2"
+                        >
+                            Proceed to Pay
+                        </NavLink>
+                    )
+                }
+                {
+                    location.pathname === '/payment' && (
+                        <NavLink
+                            to="/"
+                            type="button"
+                            className="text-center border rounded-xl bg-blue-500 text-white px-4 py-2"
+                        >
+                            Continue Shopping
+                        </NavLink>
+                    )
+                }
+                
+            </div>
 
 
         </div>
