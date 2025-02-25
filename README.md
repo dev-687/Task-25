@@ -1,4 +1,4 @@
-# Task 24: Use Of Context API
+# Task 25: Use Of Redux Tool Kit
 
 Netify URL: https://magenta-quokka-2f642b.netlify.app/
 
