@@ -1,8 +1,13 @@
-# React + Vite
+# Task 24: Use Of Context API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Netify URL: https://silver-druid-112442.netlify.app/
 
-Currently, two official plugins are available:
+Product Listing and Empty Cart 🛒
+![alt text](image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Product Listin and items in Cart 🛒
+![alt text](image-1.png)
+
+Payment Page and items in Cart 🛒
+
+![alt text](image-2.png)
