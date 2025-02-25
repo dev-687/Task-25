@@ -1,9 +1,13 @@
 
 import React from "react";
 import { NavLink, useLocation } from 'react-router'
+import { addToCart, removeFromCart } from "./features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-function Cart({ cartItems, removeFromCart, addToCart }) {
+function Cart() {
     const location = useLocation();
+    const dispatch=useDispatch();
+    const cartItems = useSelector(state => state.cart.cartItems);
     return (
         <div className="p-6 m-10 border fixed bg-gray-200 top-10 right-0 w-1/2  rounded-lg shadow-lg shadow-gray-400">
             <h2 className="text-lg font-semibold">Cart</h2>
@@ -18,14 +22,14 @@ function Cart({ cartItems, removeFromCart, addToCart }) {
 
 
                     <button
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() =>dispatch( removeFromCart({id:item.id}))}
                         className="bg-red-500 text-white px-2 py-1 rounded"
                     >
                         -
                     </button>
                     <span>{item.quantity}</span>
                     <button
-                        onClick={() => addToCart(item)}
+                        onClick={() => dispatch(addToCart(item))}
                         className="bg-green-500 text-white px-2 py-1 rounded"
                     >
                         +
@@ -36,7 +40,7 @@ function Cart({ cartItems, removeFromCart, addToCart }) {
 
             <div className="mt-2 text-center">
                 {
-                    location.pathname === '/' && (
+                    location.pathname === '/' &&  cartItems.length > 0 && (
                         <NavLink
                             to="/payment"
                             type="button"
