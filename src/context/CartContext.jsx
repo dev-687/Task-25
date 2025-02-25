@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useMemo } from "react";
 
-export const CartContext = createContext(null); // Default null to check later
+export const CartContext = createContext(null); 
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
@@ -19,7 +19,23 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== id));
+    setCartItems((prevCartItems) => {
+        const existingProduct = prevCartItems.find(item => item.id === id);
+    
+        if (existingProduct) {
+          if (existingProduct.quantity > 1) {
+            return prevCartItems.map(item =>
+              item.id === id
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            );
+          } else {
+            return prevCartItems.filter(item => item.id !== id);
+          }
+        } else {
+          return prevCartItems;
+        }
+      });
   };
 
   const contextValue = useMemo(() => ({ cartItems, addToCart, removeFromCart }), [cartItems]);
