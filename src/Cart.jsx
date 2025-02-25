@@ -1,9 +1,9 @@
 
 import React from "react";
-
+import { NavLink } from 'react-router'
 function Cart({ cartItems, removeFromCart, addToCart }) {
     return (
-        <div className="p-6 m-10 border rounded-lg shadow-md fixed bg-gray-200 top-10 right-0 w-1/2">
+        <div className="p-6 m-10 border fixed bg-gray-200 top-10 right-0 w-1/2  rounded-lg shadow-lg shadow-gray-400">
             <h2 className="text-lg font-semibold">Cart</h2>
             {cartItems.length === 0 && <p className="text-gray-500">Cart is empty</p>}
             {cartItems.map((item) => (
@@ -31,6 +31,18 @@ function Cart({ cartItems, removeFromCart, addToCart }) {
                 </div>
             ))}
             <h3 className="font-bold mt-4">Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}</h3>
+            
+           <div className="mt-2 text-center">
+           <NavLink
+            to="/payment"
+                type="button"
+                className="text-center border rounded-xl bg-blue-500 text-white px-4 py-2"
+            >
+                Proceed to Pay
+            </NavLink>
+           </div>
+
+
         </div>
 
     );

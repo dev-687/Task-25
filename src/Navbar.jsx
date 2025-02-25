@@ -4,6 +4,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import logo from '../src/assets/logo2.jpg';
+import {NavLink} from 'react-router'
 const navDialog = document.getElementById('nav-dialog')
 const handleMenu = () => {
     navDialog.classList.toggle('hidden')
@@ -19,7 +20,7 @@ function Navbar() {
                 <span className="text-lg font-medium font-display"></span>
             </a>
             <div id="nav-menu" className="hidden md:flex gap-12">
-                <a href="#" className="font-medium hover:text-primary">Home</a>
+                <NavLink to="/" className="font-medium hover:text-primary">Home</NavLink>
                 <a href="#" className="font-medium hover:text-cyan-500">About Us</a>
                 <a href="#" className="font-medium hover:text-cyan-500">Categories</a>
             </div>
