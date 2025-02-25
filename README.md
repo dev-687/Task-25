@@ -1,6 +1,6 @@
 # Task 24: Use Of Context API
 
-Netify URL: https://merry-froyo-5ee260.netlify.app/
+Netify URL: https://magenta-quokka-2f642b.netlify.app/
 
 Product Listing and Empty Cart 🛒
 ![alt text](image.png)
